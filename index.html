@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MindEase — Overview</title>
+  <meta name="description" content="MindEase is a full‑stack mental wellness app for daily check-ins, journaling, guided activities, and AI‑powered insights." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="page-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">ME</div>
+        <div class="brand-text">
+          <h1>MindEase</h1>
+          <p class="tagline">Track. Reflect. Improve.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container content">
+    <section class="hero">
+      <h2>What type of app is this?</h2>
+      <p><strong>MindEase</strong> is a full‑stack mental wellness web app focused on daily check-ins, journaling, guided activities, and AI‑powered insights. It blends habit‑building and self‑reflection with lightweight analytics to help users improve mental wellbeing gradually and safely.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Target users</h3>
+          <ul>
+            <li>Individuals building a consistent mental health routine.</li>
+            <li>Students/professionals needing quick, structured support.</li>
+            <li>Anyone wanting trends, insights, and positive reinforcement.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Core value</h3>
+          <ul>
+            <li>Simple daily actions.</li>
+            <li>Gentle analytics (no complex dashboards).</li>
+            <li>AI assistance that is supportive, not prescriptive.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Key features (current)</h2>
+      <div class="grid features">
+        <div class="card">
+          <h3>Secure Authentication</h3>
+          <ul>
+            <li>JWT‑based register/login</li>
+            <li>Google OAuth 2.0 (Passport) with sessions</li>
+            <li>Protected endpoints via <code>protect</code> middleware</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Dashboard Overview</h3>
+          <ul>
+            <li>Personalized stats for recent activity, moods, and streaks</li>
+          </ul>
+          <h3>Mood Tracking</h3>
+          <ul>
+            <li>Quick daily mood entries (happy/neutral/sad) + notes</li>
+            <li>Recent‑week trend mapping and edit/delete support</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Journal</h3>
+          <ul>
+            <li>Private entries with mood tagging</li>
+            <li>Shared/community feed (read‑only)</li>
+            <li>Delete your entries anytime</li>
+          </ul>
+          <h3>Activities</h3>
+          <ul>
+            <li>Plan by title/type/duration</li>
+            <li>Toggle completion to fuel insights/achievements</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Progress</h3>
+          <ul>
+            <li>Weekly mood/activity charts</li>
+            <li>"Achievements" at 5/10/25 activities</li>
+            <li>In‑memory aggregation for demo; DB‑ready design</li>
+          </ul>
+          <h3>Review (Insights)</h3>
+          <ul>
+            <li>Non‑clinical insights and actionable nudges</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Joy Corner (Quotes)</h3>
+          <ul>
+            <li>Fresh motivational quotes (Gemini) with fallbacks</li>
+          </ul>
+          <h3>AI Capabilities (Gemini)</h3>
+          <ul>
+            <li>Chatbot assists adding activities/moods/journals</li>
+            <li>AI Mood Summary (7 days)</li>
+            <li>CBT Thought Record</li>
+            <li>7‑day Wellness Plan (+ ICS structure)</li>
+            <li>Relapse Signals and coping tasks</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tutorials — getting started</h2>
+      <ol class="steps">
+        <li><strong>Sign up or Login:</strong> Email/password or Google; JWT attached by Axios automatically.</li>
+        <li><strong>Dashboard tour:</strong> Current mood, activities count, streak; navigate to all modules.</li>
+        <li><strong>Log your mood:</strong> Add a mood + optional note; edit/delete anytime.</li>
+        <li><strong>Add an activity:</strong> Title/type/duration; toggle when done.</li>
+        <li><strong>Write a journal entry:</strong> Content + mood tag; optional community share.</li>
+        <li><strong>Review insights:</strong> Dynamic suggestions from recent data.</li>
+        <li><strong>Try AI helpers:</strong> Mood summary, CBT, plan, relapse signals.</li>
+        <li><strong>Joy Corner:</strong> Refresh for a new motivational quote.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>How it works (high‑level methodology)</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Data Capture</h3>
+          <p>Users log moods, activities, and journals in the React UI.</p>
+          <h3>Storage</h3>
+          <p>MongoDB (Mongoose: User, Mood, Journal, AssessmentHistory). Progress aggregation currently in‑memory for demo.</p>
+        </div>
+        <div class="card">
+          <h3>Analysis</h3>
+          <p>Review endpoint computes wellbeing scores/insights. AI endpoints (Gemini) generate summaries, CBT templates, plans.</p>
+          <h3>Feedback Loop</h3>
+          <p>Dashboard/Progress reinforce habits; achievements/quotes motivate; AI suggests next actions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tech stack</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Frontend</h3>
+          <ul>
+            <li>React 18, Vite</li>
+            <li>Chakra UI, MUI Icons, Tailwind (optional), Framer Motion/GSAP</li>
+            <li>Axios with centralized client (<code>src/utils/api.ts</code>) + interceptors</li>
+            <li>Charts: <code>react-chartjs-2</code> + <code>chart.js</code></li>
+            <li>Routing: <code>react-router-dom</code></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Backend</h3>
+          <ul>
+            <li>Node.js + Express</li>
+            <li>CORS, <code>cookie-parser</code>, <code>express-session</code></li>
+            <li>Auth: JWT, Passport Google OAuth</li>
+            <li>MongoDB (Mongoose)</li>
+            <li>AI: <code>@google/generative-ai</code> (Gemini 1.5 Flash)</li>
+            <li>Env: <code>dotenv</code></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Deployment considerations</h3>
+          <ul>
+            <li>CORS config for dev/prod</li>
+            <li><code>app.set('trust proxy', 1)</code> for hosted envs</li>
+            <li>Secure session cookies in production</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Security & privacy</h2>
+      <ul class="bullets">
+        <li>JWT in Authorization header; renewable sessions</li>
+        <li>Google OAuth avoids storing passwords for those users</li>
+        <li><code>httpOnly</code> and <code>secure</code> cookies in production</li>
+        <li><code>protect</code> middleware guards sensitive routes</li>
+        <li>Minimal PII; strict separation of private vs community content</li>
+        <li>Config‑driven secrets; no key hardcoding</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Data model overview (simplified)</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>User</h3>
+          <p>name, email, password (hashed), googleId (optional)</p>
+          <h3>Mood</h3>
+          <p>user, mood (happy/neutral/sad), note/notes, date</p>
+        </div>
+        <div class="card">
+          <h3>Journal</h3>
+          <p>user, content, mood, isShared, createdAt</p>
+          <h3>AssessmentHistory</h3>
+          <p>user, assessments[{ id, date, score, scoreLevel, analysis, recommendations }]</p>
+        </div>
+        <div class="card">
+          <h3>Progress (aggregate)</h3>
+          <p>weeklyAverage, streak, activitiesCompleted</p>
+          <p>moodData, activityData, achievements</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>API routes (selected)</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Auth</h3>
+          <ul>
+            <li>POST /auth/register</li>
+            <li>POST /auth/login</li>
+            <li>GET /auth/google, GET /auth/google/callback</li>
+            <li>GET /auth/me, GET /auth/verify-token</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Features</h3>
+          <ul>
+            <li>GET /dashboard/stats</li>
+            <li>GET/POST/DELETE /mood</li>
+            <li>GET/POST/DELETE /journal, GET /journal/shared, GET /journal/community</li>
+            <li>GET /progress, POST /progress/update</li>
+            <li>GET /review/analysis</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>AI & Utilities</h3>
+          <ul>
+            <li>GET /v1/quotes/positive</li>
+            <li>POST /v1/chatbot/query</li>
+            <li>/ai: analysis, assessment generate/history, mood summary, CBT, plan, relapse signals</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Performance & UX notes</h2>
+      <ul class="bullets">
+        <li>Centralized Axios baseURL normalization + auth headers</li>
+        <li>Interceptors for logging and 401 handling</li>
+        <li>Efficient chart updates; paginate for large datasets</li>
+        <li>Chakra UI for accessibility; micro‑animations via Framer/GSAP</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Accessibility & AI guidelines</h2>
+      <ul class="bullets">
+        <li>Keyboard navigable, high contrast, semantic layout</li>
+        <li>Supportive, non‑diagnostic tone</li>
+        <li>AI suggestions, not medical advice</li>
+        <li>Conversation state minimized and safely reset</li>
+        <li>Fallback behavior if Gemini fails</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Future plans & roadmap</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Downloadable Reports</h3>
+          <ul>
+            <li>Button on Dashboard/Review/Progress</li>
+            <li>Formats: PDF, CSV, Excel, ICS</li>
+            <li>Backend: pdfkit/puppeteer/@react-pdf, exceljs, json2csv</li>
+            <li>Security: export only the authenticated user's data</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Improvements</h3>
+          <ul>
+            <li>Persist progress aggregation in DB</li>
+            <li>PWA (offline, installable, reminders)</li>
+            <li>Advanced insights (30/90‑day)</li>
+            <li>Activities marketplace</li>
+            <li>Sharing/community with moderation</li>
+            <li>i18n; clinician/coach portal (long‑term)</li>
+            <li>Privacy console; theming & personalization</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>One‑liners & links</h2>
+      <ul class="bullets">
+        <li>Track. Reflect. Improve. Your daily wellness coach, powered by gentle AI.</li>
+        <li>Small steps, real progress—MindEase keeps you consistent and encouraged.</li>
+        <li>Data you control, insights you can act on.</li>
+      </ul>
+    </section>
+
+    <footer class="page-footer">
+      <p>Engineered with React, Node/Express, MongoDB, and Gemini • Built for compassionate, privacy‑aware experiences.</p>
+    </footer>
+  </main>
+</body>
+</html>
